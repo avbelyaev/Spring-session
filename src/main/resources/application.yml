@@ -3,16 +3,17 @@ spring.datasource:
   platform: postgres
   username: identity
   password: identity
-  driverClassName: org.postgresql.Driver
 
 spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL94Dialect
 
-#spring.session:
-#  store-type: jdbc
-#  jdbc:
-#    initialize-schema: always
-#    schema: classpath:db/session_store.sql
-#    table-name: SPRING_SESSION
+
+spring.session:
+  store-type: jdbc
+  jdbc:
+    # table spring_session should be created manually
+    # script folder: org/springframework/session/jdbc
+    # spring_session is a default name. its listed here for clarity
+    table-name: SPRING_SESSION
 
 #  redis:
 #    host: localhost
