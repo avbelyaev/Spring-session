@@ -1,10 +1,9 @@
 package ru.belyaev;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.sql.DataSource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author anton.belyaev@bostongene.com
@@ -12,11 +11,9 @@ import javax.sql.DataSource;
 @RestController
 public class SessionController {
 
-    @Autowired
-    DataSource dataSource;
-
     @GetMapping("/hello")
-    public String hello() {
-        return "hello tacker";
+    public String hello(HttpServletRequest servletRequest) {
+        System.out.println("Bingo! Session id: " + servletRequest.getSession().getId());
+        return "duck";
     }
 }

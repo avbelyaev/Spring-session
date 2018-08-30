@@ -2,6 +2,13 @@
 
 #### Example
 
+0. Prepare
+```bash
+mvn install
+java -jar target/sessioner.jar
+docker-compose up
+```
+
 1. Rq with basic auth:
 ```bash
 curl http://localhost:8080/hello -H 'authorization:Basic YWRtaW46cXdlcnR5' -v
