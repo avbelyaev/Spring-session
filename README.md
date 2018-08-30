@@ -70,7 +70,7 @@ hello tacker
 Rq with no cookie no auth (just to make sure endpoint is secured): `curl http://localhost:8080/hello`
 
 Rsp:
-```bash
+```json
 {
     "timestamp":1535644057123,
     "status":401,
