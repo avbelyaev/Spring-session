@@ -10,8 +10,8 @@
 
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-parent</artifactId>
-        <version>2.0.4.RELEASE</version>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.10.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -56,6 +56,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- liquibase -->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.4.1</version>
         </dependency>
 
     </dependencies>
