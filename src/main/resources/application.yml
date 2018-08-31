@@ -22,9 +22,7 @@ spring.session:
   jdbc:
     # table spring_session should be created manually
     # script folder: org/springframework/session/jdbc
-    initialize-schema: never
-    # spring_session is a default name. its listed here for clarity
-    table-name: SPRING_SESSION
+    initialize-schema: never # DOES THIS EVEN WORKING ???
 
 ---
 

@@ -5,4 +5,7 @@
     <changeSet id="01-add-spring-session-1" author="avbelyaev">
         <sqlFile path="classpath:db/schema_session_2.0.5.sql" dbms="postgresql"/>
     </changeSet>
+    <changeSet id="01-add-spring-session-2" author="avbelyaev">
+        <renameTable oldTableName="spring_session" newTableName="spring_session_2_0_5"/>
+    </changeSet>
 </databaseChangeLog>

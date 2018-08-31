@@ -23,8 +23,8 @@ public class SessionConfiguration {
 
     @Profile("jdbc")
     @Configuration
-    @EnableJdbcHttpSession
+    @EnableJdbcHttpSession(tableName = "spring_session_2_0_5")
     public static class JdbcSessionConfig extends AbstractHttpSessionApplicationInitializer {
-
+        // empty
     }
 }
