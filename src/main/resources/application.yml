@@ -1,23 +1,27 @@
 server.port: 8081
 
-spring.datasource:
-  url: jdbc:postgresql://localhost:5432/identity
-  platform: postgres
-  username: identity
-  password: identity
+# --- Postgres ---
+#spring.datasource:
+#  url: jdbc:postgresql://localhost:5432/identity
+#  platform: postgres
+#  username: identity
+#  password: identity
+#
+#spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL94Dialect
+#
+#
+#spring.session:
+#  store-type: jdbc
+#  jdbc:
+#    # table spring_session should be created manually
+#    # script folder: org/springframework/session/jdbc
+#    initialize-schema: never
+#    # spring_session is a default name. its listed here for clarity
+#    table-name: SPRING_SESSION
 
-spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL94Dialect
-
-
-spring.session:
-  store-type: jdbc
-  jdbc:
-    # table spring_session should be created manually
-    # script folder: org/springframework/session/jdbc
-    initialize-schema: never
-    # spring_session is a default name. its listed here for clarity
-    table-name: SPRING_SESSION
-
-#  redis:
-#    host: localhost
-#    port: 6379
+# --- Redis ---
+spring:
+  session.store-type: redis
+  redis:
+    host: localhost
+    port: 6379

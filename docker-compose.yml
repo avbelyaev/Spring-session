@@ -1,16 +1,16 @@
 version: '3'
 
 services:
-#  redis:
-#    image: redis:4
-#    ports:
-#      - "6379:6379"
-
-  postgresql:
-    image: postgres:9.6
-    environment:
-      POSTGRES_DB: identity
-      POSTGRES_USER: identity
-      POSTGRES_PASSWORD: identity
+  redis:
+    image: redis:4
     ports:
-    - 5432:5432
+      - "6379:6379"
+
+#  postgresql:
+#    image: postgres:9.6
+#    environment:
+#      POSTGRES_DB: identity
+#      POSTGRES_USER: identity
+#      POSTGRES_PASSWORD: identity
+#    ports:
+#    - 5432:5432
