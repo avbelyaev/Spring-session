@@ -25,6 +25,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and()
                 .authorizeRequests().antMatchers("/hello").hasRole("ADMIN")
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                // browser could be sharing session across tab
+                // so accessing app from another tab may not create new session
+                .sessionManagement().maximumSessions(2).maxSessionsPreventsLogin(true);
     }
 }
