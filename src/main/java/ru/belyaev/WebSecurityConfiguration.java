@@ -5,6 +5,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * @author anton.belyaev@bostongene.com
@@ -13,12 +16,31 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication()
+//                .withUser("admin").password("qwerty").roles("ADMIN")
+//                .and()
+//                .withUser("superadmin").password("qazxsw").roles("ADMIN", "SUPERADMIN");
+//    }
+
+    /**
+     * Spring Boot 2.0 requires PasswordEncoder instance. but it can also be replaced with the following
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         auth.inMemoryAuthentication()
-                .withUser("admin").password("qwerty").roles("ADMIN")
-                .and()
-                .withUser("superadmin").password("qazxsw").roles("ADMIN", "SUPERADMIN");
+                .withUser(User
+                        .withUsername("admin")
+                        .password("qwerty")
+                        .roles("ADMIN")
+                        .passwordEncoder(encoder::encode))
+                .withUser(User
+                        .withUsername("superadmin")
+                        .password("qazxsw")
+                        .roles("ADMIN", "SUPERADMIN")
+                        .passwordEncoder(encoder::encode));
     }
 
     @Override

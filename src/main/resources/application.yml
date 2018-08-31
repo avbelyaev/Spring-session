@@ -10,7 +10,10 @@ spring.datasource:
   username: identity
   password: identity
 
-spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL94Dialect
+spring.jpa.properties.hibernate:
+  dialect: org.hibernate.dialect.PostgreSQL94Dialect
+  # disable hibrenate warning ons startup
+  temp.use_jdbc_metadata_defaults: false
 
 spring.session:
   store-type: jdbc
