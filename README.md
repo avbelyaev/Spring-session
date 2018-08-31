@@ -3,13 +3,24 @@
 #### Example
 
 0. Prepare
+ 
+Set docker-compose with redis/postgres
 ```bash
-mvn install
-java -jar target/sessioner.jar
 docker-compose up
 ```
 
-1. Rq with basic auth:
+Run app with redis/jdbc (postgres) profile:
+```bash
+mvn install
+# redis
+java -Dspring.profiles.active=redis -jar target/sessioner.jar
+# postgres
+java -Dspring.profiles.active=jdbc -jar target/sessioner.jar
+```
+
+1. Rq with basic auth
+
+Use creds: admin/qwerty or superadmin/qazxsw
 ```bash
 curl http://localhost:8080/hello -H 'authorization:Basic YWRtaW46cXdlcnR5' -v
 ```
