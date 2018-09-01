@@ -16,13 +16,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("admin").password("qwerty").roles("ADMIN")
-                .and()
-                .withUser("superadmin").password("qazxsw").roles("ADMIN", "SUPERADMIN");
+                .withUser("admin")
+                .password("qwerty")
+                .roles("ADMIN");
     }
 
 //    /**
-//     * Spring Boot 2.0 requires PasswordEncoder instance. but it can also be replaced with the following
+//     * Spring Boot 2.0 requires PasswordEncoder instance
 //     */
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {

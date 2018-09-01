@@ -17,12 +17,7 @@ spring.jpa.properties.hibernate:
 
 liquibase.change-log: classpath:db/changelog/db.changelog-master.xml
 
-spring.session:
-  store-type: jdbc
-  jdbc:
-    # table spring_session should be created manually
-    # script folder: org/springframework/session/jdbc
-    initialize-schema: never # DOES THIS EVEN WORKING ???
+spring.session.store-type: jdbc
 
 ---
 

@@ -20,7 +20,7 @@ java -Dspring.profiles.active=jdbc -jar target/sessioner.jar
 
 1. Rq with basic auth
 
-Use creds: admin/qwerty or superadmin/qazxsw
+Use creds: admin/qwerty
 ```bash
 curl http://localhost:8080/hello -H 'authorization:Basic YWRtaW46cXdlcnR5' -v
 ```
@@ -48,7 +48,7 @@ Trying 127.0.0.1...
 < Date: Thu, 30 Aug 2018 15:42:37 GMT
 < 
 * Connection #0 to host localhost left intact
-hello tacker
+duck
 ```
 
 Check that session is created in redis or postgres
@@ -80,7 +80,7 @@ Rsp:
 < Date: Thu, 30 Aug 2018 15:45:08 GMT
 < 
 * Connection #0 to host localhost left intact
-hello tacker
+duck
 ```
 
 ---
@@ -90,7 +90,6 @@ Rq with no cookie no auth (just to make sure endpoint is secured): `curl http://
 Rsp:
 ```json
 {
-    "timestamp":1535644057123,
     "status":401,
     "error":"Unauthorized",
     "message":"Full authentication is required to access this resource",
@@ -102,4 +101,4 @@ Rsp:
 ### Notes
 
 - spring_session table should be created manually in spring boot prior to 2.0
-- it's schema is different across different spring-session versions
+- table's structure is different across different spring-session versions
