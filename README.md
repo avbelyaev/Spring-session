@@ -1,5 +1,10 @@
 ### Spring session with Redis/Postgres
 
+- Spring Boot 1.5.10 / 2.0.4
+- Redis/Postgres-based spring-session-2.0.5
+- Liquibase migrations
+- TestContainers integ tests
+
 #### Example
 
 0. Prepare

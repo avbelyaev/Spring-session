@@ -46,6 +46,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/hello").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
+                .csrf().disable()
                 // browser could be sharing session across tab
                 // so accessing app from another tab may not create new session
                 .sessionManagement().maximumSessions(2).maxSessionsPreventsLogin(true);
